@@ -1,12 +1,14 @@
-import { StyledNavLink, StyledNav } from "./components/App.styled";
+import { Route, Routes } from 'react-router-dom';
+import { StyledNavLink, StyledNav } from './App.styled';
+// import Home from 'pages/Home/Home';
+// import Movies from 'pages/Movies/Movies';
+// import MovieDetails from 'pages/MovieDetails/MovieDetails';
+import NotFound from 'pages/NotFound/NotFound';
+import { Suspense, lazy } from 'react';
 
-import { Suspense, lazy } from "react";
-import { Route, Routes } from "react-router-dom";
-import NotFound from "./pages/NotFound/NotFound";
-
-const Home = lazy(() => import("./pages/Home/Home"));
-const Movies = lazy(() => import("./pages/Movies/Movies"));
-const MovieDetails = lazy(() => import("./pages/MovieDetails/MovieDetails"));
+const Home = lazy(() => import('pages/Home/Home'));
+const Movies = lazy(() => import('pages/Movies/Movies'));
+const MovieDetails = lazy(() => import('pages/MovieDetails/MovieDetails'));
 
 export const App = () => {
   return (
