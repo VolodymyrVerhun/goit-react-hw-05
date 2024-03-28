@@ -28,8 +28,6 @@ export default function Movies() {
           console.log(error);
           setMoviesFound(false);
         });
-      // .then(setMovies)
-      // .catch(error => console.log(error));
     }
   }, [filmQuery]);
 

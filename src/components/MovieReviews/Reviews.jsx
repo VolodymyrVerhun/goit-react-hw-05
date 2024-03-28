@@ -5,26 +5,29 @@ import ReviewsItem from "./ReviewsItem";
 import { ReviewsStyle } from "../../pages/MovieDetailsPage/MovieDetails.styled";
 
 export default function Reviews() {
-  const [reviews, setReviews] = useState(null);
-  const { id } = useParams();
+  const [reviews, setReviews] = useState([]);
+  const { movieId } = useParams();
 
   useEffect(() => {
-    getReviews(id)
+    getReviews(movieId)
       .then(setReviews)
 
       .catch((error) => console.log(error));
-  }, [id]);
+  }, [movieId]);
 
   return (
     <ReviewsStyle>
-      {reviews &&
+      {Array.isArray(reviews) && reviews.length > 0 ? (
         reviews.map((item) => (
           <ReviewsItem
             key={item.id}
             author={item.author}
             content={item.content}
           />
-        ))}
+        ))
+      ) : (
+        <p>No reviews found</p>
+      )}
     </ReviewsStyle>
   );
 }

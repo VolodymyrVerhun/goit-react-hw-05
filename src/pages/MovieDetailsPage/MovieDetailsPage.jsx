@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import {
   Route,
   Routes,
@@ -21,17 +21,19 @@ import {
 
 export default function MovieDetails() {
   const [movie, setMovie] = useState(null);
-  const { id } = useParams();
+  const { movieId } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
+  const initialLocation = useRef(location.state?.from || "/");
 
   useEffect(() => {
-    getMoviesDetails(id)
+    getMoviesDetails(movieId)
       .then(setMovie)
       .catch((error) => console.log(error));
-  }, [id]);
+  }, [movieId]);
+
   function handleClickBack() {
-    navigate(location?.state?.from ?? "/");
+    navigate(initialLocation.current);
   }
 
   if (!movie) {
@@ -61,8 +63,12 @@ export default function MovieDetails() {
       </MovieBlockInfo>
       <AdditionalInfo>
         <p>Additional information</p>
-        <AdditionalInfoLink to="cast">Cast</AdditionalInfoLink>
-        <AdditionalInfoLink to="reviews">Reviews</AdditionalInfoLink>
+        <AdditionalInfoLink state={location} to="cast">
+          Cast
+        </AdditionalInfoLink>
+        <AdditionalInfoLink state={location} to="reviews">
+          Reviews
+        </AdditionalInfoLink>
       </AdditionalInfo>
       <Routes>
         <Route path="cast" element={<CastList />}></Route>

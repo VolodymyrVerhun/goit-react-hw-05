@@ -6,19 +6,19 @@ import CastItem from "./CastItem";
 import { CastListStyle } from "../../pages/MovieDetailsPage/MovieDetails.styled";
 
 export default function CastList() {
-  const [cast, setCast] = useState(null);
-  const { id } = useParams();
+  const [cast, setCast] = useState([]);
+  const { movieId } = useParams();
 
   useEffect(() => {
-    getCast(id)
+    getCast(movieId)
       .then(setCast)
 
       .catch((error) => console.log(error));
-  }, [id]);
+  }, [movieId]);
 
   return (
     <CastListStyle>
-      {cast &&
+      {Array.isArray(cast) && cast.length > 0 ? (
         cast.map((item) => (
           <CastItem
             key={item.id}
@@ -26,7 +26,10 @@ export default function CastList() {
             img={item.profile_path}
             character={item.character}
           />
-        ))}
+        ))
+      ) : (
+        <p>No cast found</p>
+      )}
     </CastListStyle>
   );
 }

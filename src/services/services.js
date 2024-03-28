@@ -27,9 +27,9 @@ export async function getMoviesByQuery(query) {
   }
 }
 
-export async function getMoviesDetails(id) {
+export async function getMoviesDetails(movieId) {
   try {
-    const results = await axios.get(`/movie/${id}?api_key=${API__KEY}`);
+    const results = await axios.get(`/movie/${movieId}?api_key=${API__KEY}`);
 
     return results.data;
   } catch (error) {
@@ -37,9 +37,11 @@ export async function getMoviesDetails(id) {
   }
 }
 
-export async function getCast(id) {
+export async function getCast(movieId) {
   try {
-    const cast = await axios.get(`/movie/${id}/credits?api_key=${API__KEY}`);
+    const cast = await axios.get(
+      `/movie/${movieId}/credits?api_key=${API__KEY}`
+    );
 
     return cast.data.cast;
   } catch (error) {
@@ -47,9 +49,11 @@ export async function getCast(id) {
   }
 }
 
-export async function getReviews(id) {
+export async function getReviews(movieId) {
   try {
-    const reviews = await axios.get(`/movie/${id}/reviews?api_key=${API__KEY}`);
+    const reviews = await axios.get(
+      `/movie/${movieId}/reviews?api_key=${API__KEY}`
+    );
 
     return reviews.data.results;
   } catch (error) {
