@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 import { Base__Url__Img__Actor } from "../../utils/constans";
-import { CastItemStyle } from "./MovieDetails.styled";
+import { CastItemStyle } from "../../pages/MovieDetailsPage/MovieDetails.styled";
 
 export default function CastItem({ name, img, character }) {
   return (

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { getCast } from "../../services/services";
 
 import CastItem from "./CastItem";
-import { CastListStyle } from "./MovieDetails.styled";
+import { CastListStyle } from "../../pages/MovieDetailsPage/MovieDetails.styled";
 
 export default function CastList() {
   const [cast, setCast] = useState(null);

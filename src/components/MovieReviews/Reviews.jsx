@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getReviews } from "../../services/services";
 import ReviewsItem from "./ReviewsItem";
-import { ReviewsStyle } from "./MovieDetails.styled";
+import { ReviewsStyle } from "../../pages/MovieDetailsPage/MovieDetails.styled";
 
 export default function Reviews() {
   const [reviews, setReviews] = useState(null);

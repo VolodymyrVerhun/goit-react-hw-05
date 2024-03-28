@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import MovieListItem from "../MovieListItem/MovieListItem";
 
-import { MovieListStyled } from "./MovieaList.styled";
+import { MovieListStyled } from "./MovieList.styled";
 
 export default function MovieaList({ movies }) {
   return (

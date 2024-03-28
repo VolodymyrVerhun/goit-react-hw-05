@@ -1,4 +1,4 @@
-import MovieaList from "../../components/MovieaList/MovieaList";
+import MovieList from "../../components/MovieList/MovieList";
 import { useEffect, useState } from "react";
 import { getTrendMovies } from "../../services/services";
 import { HomeStyled } from "./Home.styled";
@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <div>
       <HomeStyled>Trending today</HomeStyled>
-      <MovieaList movies={movies} />
+      <MovieList movies={movies} />
     </div>
   );
 }

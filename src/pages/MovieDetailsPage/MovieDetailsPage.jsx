@@ -8,8 +8,8 @@ import {
 } from "react-router-dom";
 import { getMoviesDetails } from "../../services/services";
 import { Base__Url__Img } from "../../utils/constans";
-import CastList from "./CastList";
-import Reviews from "./Reviews";
+import CastList from "../../components/MovieCast/CastList";
+import Reviews from "../../components/MovieReviews/Reviews";
 import {
   AdditionalInfo,
   AdditionalInfoLink,

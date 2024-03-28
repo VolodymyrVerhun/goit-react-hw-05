@@ -1,4 +1,4 @@
-import MovieaList from "../../components/MovieaList/MovieaList";
+import MovieList from "../../components/MovieList/MovieList";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { getMoviesByQuery } from "../../services/services";
@@ -46,7 +46,7 @@ export default function Movies() {
         <MoviesSearchBtn type="submit">Search</MoviesSearchBtn>
       </MoviesSearchForme>
       {moviesFound ? (
-        <MovieaList movies={movies} />
+        <MovieList movies={movies} />
       ) : (
         <p
           style={{

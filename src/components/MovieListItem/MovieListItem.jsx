@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { MovieItemStyled } from "../MovieaList/MovieaList.styled";
+import { MovieItemStyled } from "../MovieList/MovieList.styled";
 
 import { useLocation } from "react-router-dom";
 
